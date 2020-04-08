@@ -300,6 +300,10 @@ Colunas:
   anterior a `date`). Isso ocorre pois nem todas as secretarias publicam
   boletins todos os dias. Veja também o campo `last_available_date`.
 - 🔍 `last_available_date`: data da qual o dado se refere.
+- 🔍 `had_cases`: `True` para todos os registros do local a partir do primeiro
+  dia que esse passou a reportar ao menos 1 caso confirmado (ótimo para pegar o
+  histórico completo de algum local, eliminando as datas em que esse local
+  ainda não possuía casos);
 - `last_available_confirmed`: número de casos confirmados do último dia
   disponível igual ou anterior à data `date`.
 - `last_available_deaths`: número de mortes do último dia disponível igual ou
@@ -321,5 +325,7 @@ Colunas:
 - [Preencha o formulário de filtros na página do
   dataset](https://brasil.io/dataset/covid19/caso) e copie/cole a
   querystring (a mesma poderá ser passada para a API);
-- Filtre por `is_last=True` para ter os dados mais atuais de cada
-  município/estado.
+- Em `caso` filtre por `is_last=True` para ter os dados mais atuais de cada
+  município/estado;
+- Em `caso-full` filtre por `had_cases=True` para ter dados apenas a partir das
+  datas em que os locais começaram a reportar o número de casos maior que 1.
